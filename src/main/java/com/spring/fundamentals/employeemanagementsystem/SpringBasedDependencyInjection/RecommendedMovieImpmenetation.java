@@ -1,17 +1,20 @@
 package com.spring.fundamentals.employeemanagementsystem.SpringBasedDependencyInjection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class RecommendedMovieImpmenetation {
 
 
-    @Autowired
-    private Filter filter;
 
-    public RecommendedMovieImpmenetation(Filter filter){
-        super();
+
+    private Filter filter ;
+
+    @Autowired
+    @Qualifier("CF")
+    public void setFilter(Filter filter) {
         this.filter = filter;
     }
 
